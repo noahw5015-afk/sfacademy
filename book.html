@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a session | SafetyFirst Academy</title>
+  <meta name="description" content="Request an on-site First Aid or CPR-C session. Choose a week, tell us your team size, and we will confirm within 24 hours.">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="nav-in">
+      <a class="brand" href="index.html">
+        <img src="assets/mark.png" alt="">
+        <span>SafetyFirst Academy</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html#courses">Courses</a>
+        <a href="index.html#why">Why us</a>
+        <a class="btn btn-solid" href="book.html">Book a session</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="kicker">Booking request</div>
+        <h1>Pick a week. Tell us the situation.</h1>
+        <p class="lede">This is a request, not an instant checkout. Choose the week that works, add team size and a short note, and Dylan will confirm by email.</p>
+      </div>
+    </section>
+
+    <section class="booking">
+      <div class="wrap booking-grid">
+        <aside class="aside-card">
+          <div class="lbl">What happens next</div>
+          <h2>A quote within 24 hours.</h2>
+          <ol>
+            <li>Send the form with your preferred week and how many people you have.</li>
+            <li>We check instructor availability and email a free quote to confirm.</li>
+            <li>Once you approve, we come to your office with everything needed.</li>
+          </ol>
+          <p class="note">Minimum 5 participants. Invoiced after the session, net 30. Questions: <a href="mailto:dylan@sfacademy.ca">dylan@sfacademy.ca</a></p>
+        </aside>
+
+        <div class="form-card">
+          <form id="bookingForm" name="session-request" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/book.html">
+            <input type="hidden" name="form-name" value="session-request">
+            <p class="honeypot">
+              <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
+            </p>
+
+            <h2>Request a session</h2>
+            <p class="form-sub">We’ll reply to the email you enter below.</p>
+            <div class="form-error" id="formError" role="alert"></div>
+
+            <div class="fr">
+              <div class="fg">
+                <label for="fname">First name</label>
+                <input id="fname" name="first-name" type="text" autocomplete="given-name" required>
+              </div>
+              <div class="fg">
+                <label for="lname">Last name</label>
+                <input id="lname" name="last-name" type="text" autocomplete="family-name">
+              </div>
+            </div>
+
+            <div class="fg">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+            </div>
+
+            <div class="fr">
+              <div class="fg">
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel">
+              </div>
+              <div class="fg">
+                <label for="company">Company</label>
+                <input id="company" name="company" type="text" autocomplete="organization" required>
+              </div>
+            </div>
+
+            <div class="fr">
+              <div class="fg">
+                <label for="size">How many people?</label>
+                <input id="size" name="team-size" type="number" min="5" step="1" placeholder="5 or more" required>
+              </div>
+              <div class="fg">
+                <label for="course">Course</label>
+                <select id="course" name="course" required>
+                  <option value="">Select</option>
+                  <option>Basic First Aid &amp; CPR-C (8 hours)</option>
+                  <option>Intermediate First Aid &amp; CPR-C (16 hours)</option>
+                  <option>Group recertification</option>
+                  <option>Custom corporate program</option>
+                  <option>Not sure yet</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="fg">
+              <label>Preferred week</label>
+              <div class="cal" id="calendar">
+                <div class="cal-head">
+                  <button type="button" id="calPrev" aria-label="Previous month">‹</button>
+                  <strong id="calLabel"></strong>
+                  <button type="button" id="calNext" aria-label="Next month">›</button>
+                </div>
+                <div class="cal-weekdays">
+                  <span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+                </div>
+                <div class="cal-grid" id="calGrid"></div>
+                <p class="cal-choice" id="calChoice">Click any day to select that week.</p>
+                <label class="check">
+                  <input id="flexible" name="date-flexible" type="checkbox" value="yes">
+                  This week is flexible
+                </label>
+              </div>
+              <input type="hidden" name="preferred-date" id="preferredDate">
+              <input type="hidden" name="preferred-week" id="preferredWeek">
+            </div>
+
+            <div class="fg">
+              <label for="notes">What’s the situation?</label>
+              <textarea id="notes" name="notes" placeholder="Office location, mornings vs afternoons, parking, split groups, anything Dylan should know." required></textarea>
+            </div>
+
+            <button class="btn btn-solid submit" id="submitBtn" type="submit">Send booking request</button>
+            <p class="fnote">No commitment. Replies go to dylan@sfacademy.ca within 24 hours.</p>
+          </form>
+
+          <div class="ok" id="okBox">
+            <h3>Request received</h3>
+            <p>Thanks. Dylan will email you within 24 hours to confirm a date and send a quote.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-top">
+        <div class="foot-brand">
+          <img src="assets/mark.png" alt="">
+          <span>SafetyFirst Academy</span>
+        </div>
+        <div class="foot-links">
+          <a href="index.html">Home</a>
+          <a href="mailto:dylan@sfacademy.ca">dylan@sfacademy.ca</a>
+        </div>
+      </div>
+      <div class="foot-btm">
+        <span>© 2026 SafetyFirst Academy · Greater Toronto Area</span>
+        <span>Lifesaving Society certified instructor · OHSA compliant</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/book.js"></script>
+</body>
+</html>
