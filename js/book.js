@@ -141,7 +141,6 @@
     var email = document.getElementById("email").value.trim();
     var company = document.getElementById("company").value.trim();
     var size = document.getElementById("size").value.trim();
-    var notes = document.getElementById("notes").value.trim();
     var flexible = document.getElementById("flexible").checked;
 
     if (!fname || !email || !company) {
@@ -158,10 +157,6 @@
     }
     if (!weekInput.value && !flexible) {
       showError("Select a week on the calendar, or mark the dates as flexible.");
-      return;
-    }
-    if (!notes) {
-      showError("Add a short note about the situation so Dylan can quote accurately.");
       return;
     }
 
