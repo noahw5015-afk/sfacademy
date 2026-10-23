@@ -74,7 +74,11 @@
   .btn-solid:hover{background:var(--blue-deep)}
   .btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
   .btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
-  .hero-mark{display:flex;justify-content:center;align-items:center}
+  .hero-mark{display:flex;justify-content:center;align-items:center;gap:32px}
+  .hero-mark img{min-width:0}
+  .hero-mark img.hero-wsib{width:110px;max-width:none;flex-shrink:0;border-radius:20px}
+  .eyebrows{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin-bottom:24px}
+  .eyebrows .eyebrow{margin-bottom:0}
   .hero-mark img{width:100%;max-width:300px;height:auto}
 
   /* STRIP */
@@ -270,7 +274,6 @@
   .foot-email{font-size:20px;font-weight:700;color:#fff;text-decoration:none;transition:color .18s}
   .foot-email:hover{color:#8FC2F9}
   .foot-phone{display:block;margin-top:4px}
-  .foot-wsib{display:block;width:64px;height:64px;margin-top:16px;border-radius:12px}
   .foot-fine{padding-top:20px;font-size:12.5px;color:#B8BBC1;line-height:1.75;max-width:960px}
 
   /* RESPONSIVE */
@@ -278,6 +281,8 @@
     .hero-grid{grid-template-columns:1fr;gap:40px}
     .hero-mark{order:-1;justify-content:flex-start}
     .hero-mark img{max-width:180px}
+    .hero-mark{gap:20px}
+    .hero-mark img.hero-wsib{width:72px;border-radius:14px}
     .steps{grid-template-columns:1fr 1fr}
     .step{border-right:none;border-bottom:1px solid var(--line);padding:26px 0!important}
     .step:nth-child(odd){padding-right:24px!important}
